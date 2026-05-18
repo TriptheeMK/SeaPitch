@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "headline": "The Visayas' Most Iconic Destination.",
+    "subheadline": "470,000 m² of retail, dining, entertainment & events on Cebu's South Road Properties."
+  },
+  "stats": [
+    { "value": 470486, "label": "m² Gross Floor Area", "suffix": "" },
+    { "value": 700, "label": "Stores & Services", "suffix": "+" },
+    { "value": 12, "label": "Anchor Tenants", "suffix": "" },
+    { "value": 4336, "label": "Parking Slots", "suffix": "" },
+    { "value": 100, "label": "F&B Venues", "suffix": "+" },
+    { "value": 1857, "label": "m² Sky Hall", "suffix": "" }
+  ],
+  "skyHall": {
+    "totalArea": 1857,
+    "indoorArea": 1292,
+    "capacity": 1500,
+    "skyGardenCapacityPerSide": 500,
+    "exhibitBooths": 100,
+    "phone": "+63 917 552 5667",
+    "email": "customercare@smsupermalls.com",
+    "address": "3rd Level, SM Seaside City Cebu, South Road Properties, Cebu City 6000"
+  },
+  "contact": {
+    "general": "customercare@smsupermalls.com",
+    "skyHall": "+63 917 552 5667",
+    "leasingSubject": "Leasing Inquiry — SM Seaside City Cebu",
+    "sponsorshipSubject": "Sponsorship Inquiry — SM Seaside City Cebu",
+    "eventsSubject": "Sky Hall Booking Inquiry — SM Seaside City Cebu"
+  },
+  "videos": {
+    "heroEmbed": "ufm-I5CTlKI",
+    "skyParkEmbed": "xJmdkaePQEI",
+    "walkthrough2026": "-0YnnHGu6AM",
+    "pov4k": "E7a9vPtKDJk"
+  },
+  "tenants": ["SM Store", "SM Supermarket", "Zara", "Uniqlo", "H&M", "Beyond the Box", "Digital Walker"],
+  "attractions": [
+    { "name": "Sky Park", "detail": "Rooftop garden with panoramic sea & mountain views, Skywalk Adventure, jogging track & dog park", "icon": "🌿" },
+    { "name": "IMAX Theater", "detail": "500+ seats · Christie 6P laser projection · Largest screen in Cebu", "icon": "🎬" },
+    { "name": "Super Screen Cinema", "detail": "Screen 30% larger than standard · 2 Director's Club theatres · 4 regular screens", "icon": "🎥" },
+    { "name": "Olympic Ice Rink", "detail": "1,800 m² Olympic-sized rink · Year-round programming · Activation-ready", "icon": "⛸️" },
+    { "name": "18-Lane Bowling", "detail": "Full bowling and amusement centre · 3rd Level City Wing", "icon": "🎳" },
+    { "name": "VR & Amusements", "detail": "Virtual World VR games · Amusement arcade · Family entertainment", "icon": "🕹️" }
+  ]
+}

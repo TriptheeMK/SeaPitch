@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SM Seaside City Cebu — Interactive Sales Deck. 470,486 m² · 700+ Stores · The Visayas' #1 Commercial Destination on South Road Properties." />
+  <title>SM Seaside City Cebu — Sales Deck</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Scroll progress bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- ═══════════════════════════════════════════════
+       PERSISTENT NAV
+  ═══════════════════════════════════════════════ -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="SM Seaside City home">
+        <span class="logo-sm">SM</span><span class="logo-text">Seaside City</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="#why" data-section="why">Why Here</a></li>
+        <li><a href="#retail" data-section="retail">Retail</a></li>
+        <li><a href="#dining" data-section="dining">Dining</a></li>
+        <li><a href="#attractions" data-section="attractions">Attractions</a></li>
+        <li><a href="#events" data-section="events">Events</a></li>
+        <li><a href="#contact" class="nav-cta" data-modal="contact" data-section="contact">Contact Leasing</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div class="mobile-overlay" id="mobile-overlay" aria-hidden="true">
+    <button class="overlay-close" id="overlay-close" aria-label="Close menu">&#10005;</button>
+    <ul role="list">
+      <li><a href="#why" class="overlay-link">Why Here</a></li>
+      <li><a href="#retail" class="overlay-link">Retail</a></li>
+      <li><a href="#dining" class="overlay-link">Dining</a></li>
+      <li><a href="#attractions" class="overlay-link">Attractions</a></li>
+      <li><a href="#events" class="overlay-link">Events</a></li>
+      <li><a href="#contact" class="overlay-link">Contact Leasing</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 1 — HERO
+  ═══════════════════════════════════════════════ -->
+  <section id="hero" class="section-hero" aria-label="Hero">
+
+    <!-- Slideshow -->
+    <div class="hero-slides" aria-hidden="true">
+      <div class="hero-slide active" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/SM_City_Seaside_Cebu%2C_Jan_2024.jpg/1280px-SM_City_Seaside_Cebu%2C_Jan_2024.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/a/a1/The_Upper_Ground_floor_of_SM_Seaside_City_%282024-06-13%29.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/72/Cube_Wing_of_the_SM_Seaside_City_%2801%29_%282024-12-14%29.jpg')"></div>
+      <div class="hero-slide" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/SM_Seaside_City_Cebu.jpg/1280px-SM_Seaside_City_Cebu.jpg')"></div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <!-- Content -->
+    <div class="hero-content">
+      <span class="hero-line"><span class="hero-inner hero-eyebrow">SM Seaside City &middot; South Road Properties, Cebu</span></span>
+      <span class="hero-line"><span class="hero-inner"><h1 class="hero-headline">Where Luxury<br>Meets Scale.</h1></span></span>
+      <span class="hero-line"><span class="hero-inner"><p class="hero-sub">470,486 m&sup2; &middot; 700+ Stores &middot; The Visayas&rsquo; #1 Commercial Destination</p></span></span>
+      <span class="hero-line"><span class="hero-inner hero-btns">
+        <a href="#retail" class="btn-primary" data-cta="hero-explore-leasing">Explore Leasing <span aria-hidden="true">&rarr;</span></a>
+        <a href="#events" class="btn-ghost" data-cta="hero-book-event">Book an Event <span aria-hidden="true">&rarr;</span></a>
+      </span></span>
+    </div>
+
+    <!-- Slide counter -->
+    <div class="slide-counter" aria-live="polite" aria-atomic="true">
+      <span id="slide-current">01</span> / 04
+    </div>
+
+    <!-- Scroll cue -->
+    <a href="#why" class="scroll-cue" aria-label="Scroll down">
+      <span class="scroll-line"></span>
+    </a>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 2 — WHY THIS PROPERTY
+  ═══════════════════════════════════════════════ -->
+  <section id="why" class="section section-why" aria-label="Why SM Seaside City">
+    <div class="container">
+      <div class="why-grid">
+
+        <!-- Image column -->
+        <div class="why-image reveal">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/SM_City_Seaside_Cebu%2C_Jan_2024.jpg/1280px-SM_City_Seaside_Cebu%2C_Jan_2024.jpg"
+            alt="SM Seaside City Cebu exterior — January 2024"
+            loading="lazy"
+            onerror="this.style.display='none'"
+            width="680" height="480"
+          />
+          <div class="image-caption">South Road Properties, Cebu City &middot; Jan 2024</div>
+        </div>
+
+        <!-- Copy column -->
+        <div class="why-copy reveal" style="--delay:0.15s">
+          <p class="section-eyebrow">Why This Property</p>
+          <h2>The Commercial Heart of the Visayas.</h2>
+
+          <div class="stats-grid">
+            <div class="stat-item reveal" style="--delay:0.1s">
+              <span class="stat-num" data-target="470486" data-suffix=" m&sup2;">0</span>
+              <span class="stat-label">Gross Floor Area</span>
+            </div>
+            <div class="stat-item reveal" style="--delay:0.18s">
+              <span class="stat-num" data-target="700" data-suffix="+">0</span>
+              <span class="stat-label">Stores &amp; Services</span>
+            </div>
+            <div class="stat-item reveal" style="--delay:0.26s">
+              <span class="stat-num" data-target="12" data-suffix="">0</span>
+              <span class="stat-label">Anchor Tenants</span>
+            </div>
+            <div class="stat-item reveal" style="--delay:0.34s">
+              <span class="stat-num" data-target="5000" data-suffix="+">0</span>
+              <span class="stat-label">Parking Slots</span>
+            </div>
+            <div class="stat-item reveal" style="--delay:0.42s">
+              <span class="stat-num" data-target="23443" data-suffix=" m&sup2;">0</span>
+              <span class="stat-label">Sky Park (rooftop)</span>
+            </div>
+            <div class="stat-item reveal" style="--delay:0.5s">
+              <span class="stat-num stat-year">Since 2015</span>
+              <span class="stat-label">Opened Nov 27, 2015</span>
+            </div>
+          </div>
+
+          <p class="body-text">Designed by Arquitectonica as SM Prime Holdings&rsquo; 56th mall, SM Seaside City sits at the heart of Cebu&rsquo;s South Road Properties &mdash; a 30-hectare mixed-use masterplan that will ultimately include residences, offices, a five-star hotel, the 16,000-seat SM Arena Seaside (opening June 2026), and the SMX Convention Center. Metro Cebu&rsquo;s fastest-growing commercial corridor, drawing shoppers from across the Visayas and Mindanao North.</p>
+
+          <ul class="location-list" aria-label="Location highlights">
+            <li><span class="loc-bullet">&rarr;</span> 12 km from Mactan-Cebu International Airport</li>
+            <li><span class="loc-bullet">&rarr;</span> 6 km from Cebu IT Park</li>
+            <li><span class="loc-bullet">&rarr;</span> Direct access from South Coastal Road</li>
+          </ul>
+
+          <a href="mailto:customercare@smsupermalls.com?subject=Investment%20Deck%20Request%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="why-investment-deck">Request Full Investment Deck &rarr;</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 3 — RETAIL + LUXURY
+  ═══════════════════════════════════════════════ -->
+  <section id="retail" class="section section-retail" aria-label="Retail and Luxury">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Retail &amp; Lifestyle</p>
+        <h2>700+ Stores. Three Wings. Every Category.</h2>
+      </div>
+
+      <!-- Scrolling tenant marquee -->
+      <div class="marquee-wrap reveal" style="--delay:0.1s" aria-label="Key tenants">
+        <div class="marquee-track" id="marquee-track">
+          <span class="tenant-name">SM Store</span>
+          <span class="tenant-name">SM Supermarket</span>
+          <span class="tenant-name">Uniqlo</span>
+          <span class="tenant-name">Zara</span>
+          <span class="tenant-name">H&amp;M</span>
+          <span class="tenant-name">Forever 21</span>
+          <span class="tenant-name">Mango</span>
+          <span class="tenant-name">Nike</span>
+          <span class="tenant-name">Adidas</span>
+          <span class="tenant-name">Puma</span>
+          <span class="tenant-name">Levi&rsquo;s</span>
+          <span class="tenant-name">Cotton On</span>
+          <span class="tenant-name">Bench</span>
+          <span class="tenant-name">Penshoppe</span>
+          <span class="tenant-name">Charles &amp; Keith</span>
+          <span class="tenant-name">The North Face</span>
+          <span class="tenant-name">Timberland</span>
+          <span class="tenant-name">Miniso</span>
+          <span class="tenant-name">Daiso Japan</span>
+          <span class="tenant-name">Watsons</span>
+          <span class="tenant-name">Power Mac Center</span>
+          <span class="tenant-name">Ace Hardware</span>
+          <span class="tenant-name">Our Home</span>
+          <span class="tenant-name">BDO Unibank</span>
+          <span class="tenant-name">Chinabank</span>
+          <span class="tenant-name">Audi</span>
+          <span class="tenant-name">American Eagle Outfitters</span>
+          <span class="tenant-name">SM Appliance Center</span>
+          <span class="tenant-name">Penshoppe</span>
+          <span class="tenant-name">Kultura Filipino</span>
+        </div>
+      </div>
+
+      <!-- Three retail cards -->
+      <div class="retail-grid">
+
+        <div class="retail-card reveal" style="--delay:0.05s">
+          <div class="retail-card-img">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a1/The_Upper_Ground_floor_of_SM_Seaside_City_%282024-06-13%29.jpg"
+              alt="SM Seaside City Upper Ground Floor atrium"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="retail-card-body">
+            <span class="card-eyebrow">SM Store &amp; Anchors</span>
+            <h3>The Foundation.</h3>
+            <p>Two-storey SM Store anchoring the property. 12 anchor tenants across City Wing, Seaview Wing, and Cube Wing.</p>
+          </div>
+        </div>
+
+        <div class="retail-card reveal" style="--delay:0.12s">
+          <div class="retail-card-img">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/7/72/Cube_Wing_of_the_SM_Seaside_City_%2801%29_%282024-12-14%29.jpg"
+              alt="Cube Wing interior — SM Seaside City"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="retail-card-body">
+            <span class="card-eyebrow">International Fashion</span>
+            <h3>Global Brands, Local Reach.</h3>
+            <p>Uniqlo, Zara, H&amp;M, Mango, Forever 21, American Eagle &mdash; the deepest international fashion roster in the Visayas.</p>
+          </div>
+        </div>
+
+        <div class="retail-card reveal" style="--delay:0.2s">
+          <div class="retail-card-img">
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&q=80"
+              alt="Luxury retail interior"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="retail-card-body">
+            <span class="card-eyebrow">Luxury &amp; Lifestyle</span>
+            <h3>Growing Premium Adjacency.</h3>
+            <p>An Audi dealership, Charles &amp; Keith, The North Face, and a growing luxury adjacency pipeline as South Road Properties matures.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Leasing Paths -->
+      <div class="lease-paths-header reveal" style="--delay:0.1s">
+        <p class="section-eyebrow">Leasing Opportunities</p>
+        <h3>Find Your Space.</h3>
+      </div>
+
+      <div class="lease-paths">
+
+        <div class="lease-card reveal" style="--delay:0.05s" data-cta="leasing-luxury">
+          <div class="lease-tier">Luxury Flagship</div>
+          <h4 class="lease-title">Premium Ground-Floor</h4>
+          <div class="lease-size">500 &ndash; 2,000 m&sup2; available</div>
+          <div class="lease-rate">
+            Starting &#8369;2,500 &ndash; &#8369;5,000 / m&sup2; / mo (est.)
+            <div class="rate-disclaimer">est. &mdash; contact for current rates</div>
+          </div>
+          <p class="lease-pitch">Ideal for auto, luxury fashion, and flagship tech brands seeking maximum visibility in the Visayas&rsquo; most trafficked address.</p>
+          <a href="mailto:customercare@smsupermalls.com?subject=Luxury%20Flagship%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="leasing-luxury-tour">Request a Tour &rarr;</a>
+        </div>
+
+        <div class="lease-card lease-card--featured reveal" style="--delay:0.12s" data-cta="leasing-midtier">
+          <div class="lease-tier">Mid-Tier Retail</div>
+          <h4 class="lease-title">City Wing &amp; Seaview Wing</h4>
+          <div class="lease-size">100 &ndash; 500 m&sup2; available</div>
+          <div class="lease-rate">
+            Starting &#8369;800 &ndash; &#8369;2,000 / m&sup2; / mo (est.)
+            <div class="rate-disclaimer">est. &mdash; contact for current rates</div>
+          </div>
+          <p class="lease-pitch">Ideal for fashion, electronics, and specialty retail brands looking for high-traffic corridors with sustained daily footfall.</p>
+          <a href="mailto:customercare@smsupermalls.com?subject=Mid-Tier%20Retail%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="leasing-midtier-tour">Request a Tour &rarr;</a>
+        </div>
+
+        <div class="lease-card reveal" style="--delay:0.2s" data-cta="leasing-popup">
+          <div class="lease-tier">Pop-Up &amp; Kiosk</div>
+          <h4 class="lease-title">Atrium &amp; Concourse</h4>
+          <div class="lease-size">10 &ndash; 50 m&sup2; available</div>
+          <div class="lease-rate">
+            Starting &#8369;500 &ndash; &#8369;1,000 / m&sup2; / mo (est.)
+            <div class="rate-disclaimer">est. &mdash; contact for current rates</div>
+          </div>
+          <p class="lease-pitch">Ideal for F&amp;B, lifestyle, and limited-edition drop concepts. High-visibility inline and freestanding positions in peak-traffic zones.</p>
+          <a href="mailto:customercare@smsupermalls.com?subject=Pop-Up%20Kiosk%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="leasing-popup-tour">Request a Tour &rarr;</a>
+        </div>
+
+      </div>
+
+      <!-- CTA banner -->
+      <div class="cta-banner reveal" style="--delay:0.25s">
+        <span class="cta-banner-text">Ready to secure your space? Let&rsquo;s talk.</span>
+        <a href="mailto:customercare@smsupermalls.com?subject=Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="retail-leasing-banner">Leasing Inquiry &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 4 — DINING & LIFESTYLE
+  ═══════════════════════════════════════════════ -->
+  <section id="dining" class="section section-dining" aria-label="Dining and Lifestyle">
+    <div class="dining-split">
+
+      <div class="dining-image reveal" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200&q=80"
+          alt="Dining venue interior"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+      </div>
+
+      <div class="dining-copy reveal" style="--delay:0.15s">
+        <p class="section-eyebrow">Dining &amp; Lifestyle</p>
+        <h2>100+ Venues. Every Craving Covered.</h2>
+
+        <div class="dining-stats">
+          <div class="stat-chip">Avg. 2.5 hr dwell time</div>
+          <div class="stat-chip">100+ F&amp;B venues</div>
+          <div class="stat-chip">3 distinct dining levels</div>
+        </div>
+
+        <p class="body-text">A captive audience with disposable time. Peak dining crowds at noon and 6 PM means F&amp;B operators enjoy one of the highest seat-turns-per-day ratios in Cebu.</p>
+
+        <ul class="feature-list" aria-label="Dining highlights">
+          <li><strong>Michelin-recognised:</strong> Tim Ho Wan (dim sum), Hawker Chan (Singaporean)</li>
+          <li><strong>Rooftop:</strong> Parilya, Lantaw Seaside Grill (Sky Park)</li>
+          <li><strong>Caf&eacute;s:</strong> Starbucks Reserve, Bo&rsquo;s Coffee, Coffee Bean &amp; Tea Leaf</li>
+          <li><strong>International:</strong> TGI Fridays, Italianni&rsquo;s, Casa Verde, Yellow Cab</li>
+          <li><strong>Ramen Row:</strong> Barikata, Ramen Kuroda, Dotonbori</li>
+          <li><strong>Fast food:</strong> Jollibee, McDonald&rsquo;s, KFC, BonChon, Mang Inasal</li>
+        </ul>
+
+        <p class="body-text micro-pitch">Peak footfall: 12:00&ndash;14:00 and 18:00&ndash;21:00 daily. Lower ground food court plus rooftop Sky Park dining deliver multi-level coverage at every daypart.</p>
+
+        <a href="mailto:customercare@smsupermalls.com?subject=F%26B%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="dining-leasing">F&amp;B Leasing Inquiry &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 5 — ATTRACTIONS & ENTERTAINMENT
+  ═══════════════════════════════════════════════ -->
+  <section id="attractions" class="section section-attractions" aria-label="Attractions and Entertainment">
+    <div class="container">
+
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Attractions &amp; Entertainment</p>
+        <h2>No Other Mall in the Visayas Comes Close.</h2>
+        <p class="body-text section-intro">Six entertainment anchors &mdash; from the only Olympic ice rink in the Visayas to a 23,443 m&sup2; rooftop park &mdash; that generate daily foot traffic, dwell time, and brand exposure no single-format property can match.</p>
+      </div>
+
+      <div class="attractions-grid">
+
+        <div class="attraction-card reveal" data-index="0" style="--delay:0.05s" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Sky Park — learn more">
+          <div class="attraction-img">
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+              alt="Sky Park rooftop garden"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="attraction-body">
+            <span class="attraction-icon" aria-hidden="true">&#127807;</span>
+            <h3>Sky Park</h3>
+            <p>23,443 m&sup2; rooftop garden &middot; Designed with Kenneth Cobonpue</p>
+          </div>
+          <span class="card-expand-hint" aria-hidden="true">Tap to explore &rarr;</span>
+        </div>
+
+        <div class="attraction-card reveal" data-index="1" style="--delay:0.1s" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Super Screen Cinema — learn more">
+          <div class="attraction-img">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c1/SM_Cinema_at_SM_Seaside_City_%282025-03-01%29.jpg"
+              alt="SM Cinema at SM Seaside City"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="attraction-body">
+            <span class="attraction-icon" aria-hidden="true">&#127908;</span>
+            <h3>Super Screen Cinema</h3>
+            <p>351 seats &middot; Christie 6P laser &middot; Dolby Atmos &middot; 7 screens total</p>
+          </div>
+          <span class="card-expand-hint" aria-hidden="true">Tap to explore &rarr;</span>
+        </div>
+
+        <div class="attraction-card reveal" data-index="2" style="--delay:0.15s" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Olympic Ice Rink — learn more">
+          <div class="attraction-img">
+            <img
+              src="https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1200&q=80"
+              alt="Olympic ice rink"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="attraction-body">
+            <span class="attraction-icon" aria-hidden="true">&#9976;</span>
+            <h3>Olympic Ice Rink</h3>
+            <p>1,800 m&sup2; &middot; Only Olympic rink in the Visayas &middot; Reopened 2026</p>
+          </div>
+          <span class="card-expand-hint" aria-hidden="true">Tap to explore &rarr;</span>
+        </div>
+
+        <div class="attraction-card reveal" data-index="3" style="--delay:0.2s" tabindex="0" role="button" aria-haspopup="dialog" aria-label="SM Bowling and Amusement — learn more">
+          <div class="attraction-img">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/ac/SM_Bowling_and_Leisure_Center_at_SM_Seaside_City_%282024-06-13%29.jpg"
+              alt="SM Bowling and Leisure Center"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="attraction-body">
+            <span class="attraction-icon" aria-hidden="true">&#127923;</span>
+            <h3>SM Bowling &amp; Amusement</h3>
+            <p>18 regulation lanes &middot; Arcade &middot; 3rd Level City Wing</p>
+          </div>
+          <span class="card-expand-hint" aria-hidden="true">Tap to explore &rarr;</span>
+        </div>
+
+        <div class="attraction-card reveal" data-index="4" style="--delay:0.25s" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Skywalk Adventure — learn more">
+          <div class="attraction-img">
+            <img
+              src="https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1200&q=80"
+              alt="Glass floor skywalk bridge"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="attraction-body">
+            <span class="attraction-icon" aria-hidden="true">&#129695;</span>
+            <h3>Skywalk Adventure</h3>
+            <p>Glass-floor panels &middot; Sky Park &middot; Signature photo moment</p>
+          </div>
+          <span class="card-expand-hint" aria-hidden="true">Tap to explore &rarr;</span>
+        </div>
+
+        <div class="attraction-card reveal" data-index="5" style="--delay:0.3s" tabindex="0" role="button" aria-haspopup="dialog" aria-label="Seaside Tower — learn more">
+          <div class="attraction-img">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/SM_Seaside_City_Cebu.jpg/1280px-SM_Seaside_City_Cebu.jpg"
+              alt="Seaside Tower SM Seaside City Cebu"
+              loading="lazy"
+              onerror="this.style.display='none'"
+            />
+          </div>
+          <div class="attraction-body">
+            <span class="attraction-icon" aria-hidden="true">&#128956;</span>
+            <h3>Seaside Tower</h3>
+            <p>169 m &middot; Nautilus-inspired &middot; SRP landmark</p>
+          </div>
+          <span class="card-expand-hint" aria-hidden="true">Tap to explore &rarr;</span>
+        </div>
+
+      </div>
+
+      <div class="section-cta reveal" style="--delay:0.35s">
+        <a href="mailto:customercare@smsupermalls.com?subject=Sponsorship%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="attractions-brand-activation">Brand Activations Available &rarr;</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Attraction detail modal -->
+  <div class="modal-backdrop" id="modal-backdrop" aria-hidden="true" role="presentation">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" id="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&#10005;</button>
+      <div class="modal-img-wrap">
+        <div class="modal-img" id="modal-img"></div>
+      </div>
+      <div class="modal-body">
+        <span class="modal-icon" id="modal-icon" aria-hidden="true"></span>
+        <h3 id="modal-title"></h3>
+        <p id="modal-detail"></p>
+        <a href="mailto:customercare@smsupermalls.com?subject=Activation%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary modal-cta" data-cta="modal-activation">Discuss an Activation &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 6 — EVENTS & PLATFORM
+  ═══════════════════════════════════════════════ -->
+  <section id="events" class="section section-events" aria-label="Events and Platform">
+    <div class="events-bg" aria-hidden="true" style="background-image:url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=85')"></div>
+    <div class="events-overlay" aria-hidden="true"></div>
+    <div class="container events-content">
+
+      <div class="events-header reveal">
+        <p class="section-eyebrow">Events &amp; Platform</p>
+        <h2>A City-Scale Event Platform.</h2>
+        <p class="body-text">From Sinulog pyro-spectaculars and Sky Park parties to corporate galas and FIVB World Championships &mdash; SM Seaside is Cebu&rsquo;s premier event platform, backed by SMX-operated venues, 5,000+ parking slots, and a 16,000-seat arena opening June 2026.</p>
+      </div>
+
+      <!-- Spec cards -->
+      <div class="venue-specs reveal" style="--delay:0.12s">
+        <div class="spec-card">
+          <span class="spec-num">1,857</span>
+          <span class="spec-unit">m&sup2;</span>
+          <span class="spec-label">Sky Hall total space</span>
+        </div>
+        <div class="spec-card">
+          <span class="spec-num">1,500</span>
+          <span class="spec-unit">pax</span>
+          <span class="spec-label">Sky Hall max capacity</span>
+        </div>
+        <div class="spec-card">
+          <span class="spec-num">100+</span>
+          <span class="spec-unit"></span>
+          <span class="spec-label">Exhibit booths (2&times;2 to 3&times;3 m)</span>
+        </div>
+        <div class="spec-card">
+          <span class="spec-num">16,000</span>
+          <span class="spec-unit">seats</span>
+          <span class="spec-label">SM Arena Seaside (2026)</span>
+        </div>
+      </div>
+
+      <!-- Sky Hall image -->
+      <div class="skyhall-preview reveal" style="--delay:0.2s">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/9/98/Sky_Hall_entrance_at_SM_Seaside_City_%282025-03-01%29.jpg"
+          alt="Sky Hall entrance — SM Seaside City"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="skyhall-preview-caption">Sky Hall &mdash; 3rd Level, SM Seaside City</div>
+      </div>
+
+      <!-- Director's Club image -->
+      <div class="directors-preview reveal" style="--delay:0.22s">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c9/SM_Director%27s_Club_Cinema_at_SM_Seaside_City_%282025-04-19%29.jpg"
+          alt="SM Director's Club Cinema — SM Seaside City"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+        <div class="skyhall-preview-caption">SM Director&rsquo;s Club Cinema</div>
+      </div>
+
+      <!-- Confirmed events -->
+      <div class="events-confirmed reveal" style="--delay:0.25s">
+        <h3 class="events-confirmed-title">Confirmed Events</h3>
+        <ul class="events-list" aria-label="Confirmed events">
+          <li><span class="event-date">Jan 19, 2025</span> Sinulog Kick-Off &amp; Pyrospectacular &mdash; SM Seaside City</li>
+          <li><span class="event-date">Jan 18&ndash;19, 2025</span> Sinulog Sky Park Party &mdash; 5,000+ guests</li>
+          <li><span class="event-date">Jan 2025</span> AweSM Lechon Festival &mdash; City Wing Atrium</li>
+          <li><span class="event-date">Jul 11, 2026</span> BINI Live &mdash; SM Arena Seaside (confirmed)</li>
+          <li><span class="event-date">Jul 18, 2026</span> IV of Spades &mdash; SM Arena Seaside (confirmed)</li>
+          <li><span class="event-date">Nov 2026</span> LANY &mdash; SM Arena Seaside (confirmed)</li>
+          <li><span class="event-date">2026 &amp; 2027</span> FIVB Women&rsquo;s Volleyball Nations League (confirmed)</li>
+        </ul>
+      </div>
+
+      <!-- CTA buttons -->
+      <div class="events-cta reveal" style="--delay:0.3s">
+        <a href="tel:+639175525667" class="btn-primary" data-cta="events-book-skyhall">Book Sky Hall &rarr;</a>
+        <a href="https://www.smxconventioncenter.com/wp-content/uploads/2023/02/SKY-HALL-SEASIDE-CEBU_Capacity-Sheet.pdf" class="btn-ghost" target="_blank" rel="noopener noreferrer" data-cta="events-download-capacity">Download Capacity Sheet</a>
+      </div>
+
+      <div class="events-module-trigger-wrap reveal" style="--delay:0.38s">
+        <button class="btn-ghost events-module-trigger" id="events-module-open" aria-haspopup="dialog" data-cta="events-skyhall-panel">
+          Explore Sky Hall in Depth &#8599;
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SKY HALL DEEP PANEL
+  ═══════════════════════════════════════════════ -->
+  <div class="skyhall-panel" id="skyhall-panel" aria-hidden="true" role="dialog" aria-labelledby="skyhall-title">
+    <div class="skyhall-inner">
+      <button class="skyhall-close" id="skyhall-close" aria-label="Close Sky Hall panel">&#10005; Close</button>
+      <div class="skyhall-hero-img" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/9/98/Sky_Hall_entrance_at_SM_Seaside_City_%282025-03-01%29.jpg')"></div>
+      <div class="skyhall-body">
+        <p class="section-eyebrow">Phase 2 &middot; Events Module</p>
+        <h2 id="skyhall-title">Sky Hall Seaside Cebu</h2>
+        <p class="body-text">The Visayas&rsquo; premier SMX-operated event venue &mdash; 3rd Level, SM Seaside City. Ideal for concerts, expos, corporate galas, and product launches.</p>
+
+        <div class="skyhall-specs-grid">
+          <div class="skyhall-spec">
+            <span class="snum">1,857</span><span class="sunit">m&sup2;</span>
+            <span class="slbl">Total flexible space</span>
+          </div>
+          <div class="skyhall-spec">
+            <span class="snum">1,500</span><span class="sunit">pax</span>
+            <span class="slbl">Maximum capacity</span>
+          </div>
+          <div class="skyhall-spec">
+            <span class="snum">100+</span>
+            <span class="slbl">Exhibit booths (2&times;2 to 3&times;3 m)</span>
+          </div>
+          <div class="skyhall-spec">
+            <span class="snum">25,000</span><span class="sunit">cap.</span>
+            <span class="slbl">SM Arena full-house (2026)</span>
+          </div>
+        </div>
+
+        <div class="tier-grid">
+          <div class="tier-card">
+            <span class="tier-icon">&#127925;</span>
+            <h4>Concerts &amp; Live Shows</h4>
+            <p>SM Arena (June 2026): 16,000 standard / 25,000 full-house. BINI (Jul 11), IV of Spades (Jul 18), LANY (Nov 2026) confirmed. Connected via skybridge.</p>
+          </div>
+          <div class="tier-card">
+            <span class="tier-icon">&#127970;</span>
+            <h4>Corporate &amp; MICE</h4>
+            <p>LED walls &middot; WiFi &amp; LAN &middot; Catering kitchen per hall &middot; Dressing rooms &middot; CCTV &middot; Automated fire alarm</p>
+          </div>
+          <div class="tier-card">
+            <span class="tier-icon">&#128717;</span>
+            <h4>Trade &amp; Expo</h4>
+            <p>100 exhibit booths (2&times;2 to 3&times;3 m) &middot; Direct car lift access &middot; 5,000+ covered parking slots</p>
+          </div>
+          <div class="tier-card">
+            <span class="tier-icon">&#127807;</span>
+            <h4>Sky Garden</h4>
+            <p>Outdoor rooftop terrace overlooking mountains and city &middot; 500 pax per side &middot; Available as standalone or attached to indoor halls</p>
+          </div>
+        </div>
+
+        <div class="skyhall-cta-row">
+          <a href="mailto:customercare@smsupermalls.com?subject=Sky%20Hall%20Booking%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="book-skyhall">Book Sky Hall &rarr;</a>
+          <a href="https://www.smxconventioncenter.com/wp-content/uploads/2023/02/SKY-HALL-SEASIDE-CEBU_Capacity-Sheet.pdf" class="btn-ghost" target="_blank" rel="noopener" data-cta="download-capacity-sheet">Download Capacity Sheet</a>
+          <a href="tel:+639175525667" class="btn-ghost" data-cta="call-skyhall">+63 917 552 5667</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════
+       SECTION 7 — CONTACT / CTA
+  ═══════════════════════════════════════════════ -->
+  <section id="contact" class="section section-contact" aria-label="Contact and inquiries">
+    <div class="container">
+
+      <div class="contact-header reveal">
+        <p class="section-eyebrow">Let&rsquo;s Build Something Together</p>
+        <h2>Three Ways to Start.</h2>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card reveal" style="--delay:0.05s">
+          <div class="contact-icon-wrap" aria-hidden="true">&#127978;</div>
+          <h3>Lease a Space</h3>
+          <p>Luxury &middot; Retail &middot; F&amp;B &middot; Pop-up<br>200,000+ m&sup2; of gross leasable area. Find your position in the Visayas&rsquo; premier address.</p>
+          <a href="mailto:customercare@smsupermalls.com?subject=Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary contact-btn" data-cta="contact-lease">Leasing Inquiry &rarr;</a>
+        </div>
+
+        <div class="contact-card contact-card--featured reveal" style="--delay:0.12s">
+          <div class="contact-icon-wrap" aria-hidden="true">&#129309;</div>
+          <h3>Sponsor an Activation</h3>
+          <p>Atrium &middot; Ice Rink &middot; Sky Park &middot; Sky Hall<br>Reach a captive, diverse audience of shoppers, families, tourists, and professionals.</p>
+          <a href="mailto:customercare@smsupermalls.com?subject=Sponsorship%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary contact-btn" data-cta="contact-sponsor">Sponsorship Inquiry &rarr;</a>
+        </div>
+
+        <div class="contact-card reveal" style="--delay:0.2s">
+          <div class="contact-icon-wrap" aria-hidden="true">&#127914;</div>
+          <h3>Book a Venue</h3>
+          <p>Sky Hall &middot; Sky Garden &middot; SM Arena (2026)<br>Concerts, expos, galas, and product launches at the Visayas&rsquo; most capable event complex.</p>
+          <a href="mailto:customercare@smsupermalls.com?subject=Event%20Booking%20%E2%80%94%20Sky%20Hall%20SM%20Seaside%20City%20Cebu" class="btn-primary contact-btn" data-cta="contact-venue">Book a Venue &rarr;</a>
+        </div>
+
+      </div>
+
+      <div class="contact-info-row reveal" style="--delay:0.28s">
+        <span><a href="mailto:customercare@smsupermalls.com">customercare@smsupermalls.com</a></span>
+        <span class="contact-sep">&middot;</span>
+        <span><a href="tel:+639175525667">+63 917 552 5667</a></span>
+        <span class="contact-sep">&middot;</span>
+        <span>3rd Level, SM Seaside City, South Road Properties, Cebu City 6000</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT MODAL
+  ═══════════════════════════════════════════════ -->
+  <div class="contact-modal-backdrop" id="contact-modal" aria-hidden="true" role="presentation">
+    <div class="contact-modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="modal-close" id="contact-modal-close" aria-label="Close contact modal">&#10005;</button>
+      <h3 id="contact-modal-title">Get in Touch</h3>
+      <p id="contact-modal-subtitle">We&rsquo;ll connect you with the right team.</p>
+      <div class="modal-links">
+        <a class="modal-link-btn" href="mailto:customercare@smsupermalls.com?subject=Leasing+Inquiry+%E2%80%94+SM+Seaside+City" data-cta="modal-leasing">Leasing Inquiry</a>
+        <a class="modal-link-btn" href="mailto:customercare@smsupermalls.com?subject=Sponsorship+Inquiry+%E2%80%94+SM+Seaside+City" data-cta="modal-sponsorship">Sponsorship Inquiry</a>
+        <a class="modal-link-btn" href="mailto:customercare@smsupermalls.com?subject=Event+Booking+%E2%80%94+Sky+Hall+SM+Seaside+City" data-cta="modal-events">Event Booking</a>
+        <a class="modal-link-btn" href="tel:+639175525667" data-cta="modal-call">Call: +63 917 552 5667</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="footer-brand"><span class="logo-sm">SM</span> Seaside City Cebu &middot; SM Prime Holdings</span>
+      <span class="footer-tagline">Interactive Sales Deck &mdash; South Road Properties, Cebu City 6000</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

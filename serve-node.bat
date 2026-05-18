@@ -1,0 +1,3 @@
+@echo off
+echo Starting local server on http://localhost:3000
+node -e "const h=require('http'),f=require('fs'),p=require('path');h.createServer((q,r)=>{let fp=p.join('project',q.url==='/'?'index.html':q.url);try{const d=f.readFileSync(fp);const m={'html':'text/html','css':'text/css','js':'application/javascript','json':'application/json','webp':'image/webp','jpg':'image/jpeg','png':'image/png','svg':'image/svg+xml','woff2':'font/woff2'};const ext=fp.split('.').pop();r.writeHead(200,{'Content-Type':m[ext]||'text/plain'});r.end(d);}catch{r.writeHead(404);r.end('Not found');}}).listen(3000,()=>console.log('Open: http://localhost:3000'));"
