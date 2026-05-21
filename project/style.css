@@ -1104,30 +1104,6 @@ h4 {
   object-fit: cover;
 }
 
-.luxury-badge {
-  position: absolute;
-  top: 50%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-pill);
-  padding: 10px 18px;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-}
-
-.luxury-badge-text {
-  font-size: 0.65rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gold);
-  font-weight: 500;
-}
-
 .luxury-brand-list {
   display: flex;
   flex-wrap: wrap;

@@ -11,13 +11,13 @@ var ATTRACTIONS = [
     name: 'Sky Park',
     icon: '🌿',
     img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
-    detail: "~20,000 m² elevated rooftop park — free entry — designed in collaboration with Kenneth Cobonpue. Features ponds, trees, jogging track, soccer field, dog park, and children’s playground. Views overlook San Pedro Calungsod Chapel and Cebu Ocean Park. Hosts the annual Sinulog Sky Park Party (5,000+ guests). The adjacent Sky Garden event terrace seats 500 per side."
+    detail: "~20,000 m² elevated rooftop park — free entry — designed in collaboration with Kenneth Cobonpue. Features ponds, trees, jogging track, soccer field, dog park, and children's playground. Views overlook San Pedro Calungsod Chapel and Cebu Ocean Park. Hosts the annual Sinulog Sky Park Party (5,000+ guests). The adjacent Sky Garden event terrace seats 500 per side."
   },
   {
     name: 'Super Screen Cinema',
     icon: '🎬',
     img: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/SM_Cinema_at_SM_Seaside_City_%282025-03-01%29.jpg',
-    detail: "351 seats with Christie 6P laser projection and Dolby Atmos sound — a screen nearly 30% larger than standard. Plus 2 Director’s Club recliner theatres and 4 regular digital screens — 7 auditoriums total. The Visayas’ most advanced cinema complex."
+    detail: "351 seats with Christie 6P laser projection and Dolby Atmos sound — a screen nearly 30% larger than standard. Plus 2 Director's Club recliner theatres and 4 regular digital screens — 7 auditoriums total. The Visayas' most advanced cinema complex."
   },
   {
     name: 'Olympic Ice Rink',
@@ -90,7 +90,6 @@ function initHeroSlideshow() {
 
   interval = setInterval(next, 5000);
 
-  // Add hero-loaded class after short delay to trigger text entrance
   setTimeout(function () {
     var hero = document.getElementById('hero');
     if (hero) hero.classList.add('hero-loaded');
@@ -111,14 +110,12 @@ function initNav() {
   function onScroll() {
     var scrollY = window.scrollY || window.pageYOffset;
 
-    // Scrolled class (shadow only — background always solid)
     if (scrollY > 40) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
 
-    // Scroll-spy
     var active = '';
     sections.forEach(function (sec) {
       var top = sec.offsetTop - navH - 80;
@@ -199,7 +196,6 @@ function initMobileNav() {
     link.addEventListener('click', closeMobileNav);
   });
 
-  // Close on Escape
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && overlay.classList.contains('open')) {
       closeMobileNav();
@@ -213,7 +209,6 @@ function initMobileNav() {
 function initReveal() {
   var elements = document.querySelectorAll('.reveal');
   if (!elements.length || !('IntersectionObserver' in window)) {
-    // Fallback: show all
     elements.forEach(function (el) { el.classList.add('visible'); });
     return;
   }
@@ -253,7 +248,6 @@ function animateCounter(el) {
     var eased = easeOutExpo(progress);
     var value = Math.round(eased * target);
 
-    // Format large numbers with commas
     var formatted = value.toLocaleString('en-US');
     el.textContent = formatted + suffix;
 
@@ -342,7 +336,6 @@ function initAttractionModal() {
     backdrop.setAttribute('aria-hidden', 'false');
     document.body.classList.add('scroll-locked');
 
-    // Focus first focusable in modal
     var focusables = modal.querySelectorAll(focusableSel);
     if (focusables.length) focusables[0].focus();
 
@@ -356,7 +349,6 @@ function initAttractionModal() {
     if (lastFocused) lastFocused.focus();
   }
 
-  // Focus trap
   modal.addEventListener('keydown', function (e) {
     if (e.key !== 'Tab') return;
     var focusables = Array.from(modal.querySelectorAll(focusableSel));
@@ -399,7 +391,6 @@ function initSkyHallPanel() {
 
   if (!panel) return;
 
-  // Create backdrop element
   var backdrop = document.createElement('div');
   backdrop.className = 'skyhall-panel-backdrop';
   backdrop.setAttribute('aria-hidden', 'true');
@@ -410,7 +401,6 @@ function initSkyHallPanel() {
     panel.setAttribute('aria-hidden', 'false');
     backdrop.classList.add('open');
     document.body.classList.add('scroll-locked');
-    // Focus close button
     if (closeBtn) setTimeout(function () { closeBtn.focus(); }, 100);
     trackCta('skyhall-panel-open');
   }
@@ -488,13 +478,12 @@ function trackCta(label) {
   if (typeof gtag === 'function') {
     gtag('event', 'cta_click', { event_category: 'sales', event_label: label });
   }
-  // Store in sessionStorage for later review
   try {
     var log = JSON.parse(sessionStorage.getItem('cta_log') || '[]');
     log.push({ label: label, ts: Date.now() });
     sessionStorage.setItem('cta_log', JSON.stringify(log));
   } catch (e) {
-    // sessionStorage may be unavailable in some contexts
+    // ignore
   }
 }
 
@@ -514,7 +503,6 @@ function initMarquee() {
   var track = document.getElementById('marquee-track');
   if (!track) return;
 
-  // Clone the inner content and append to create seamless loop
   var originalHTML = track.innerHTML;
   track.innerHTML = originalHTML + originalHTML;
 }
@@ -574,13 +562,11 @@ function initTourModal() {
     tourOpen = true;
     trackCta('tour-open-' + tourKey);
 
-    // Populate meta
     metaEyebrow.textContent = tour.eyebrow;
     metaTitle.textContent   = tour.title;
     introLabel.textContent  = 'Your guided experience begins…';
     inquiryBtn.href = 'mailto:customercare@smsupermalls.com?subject=' + tour.inquirySubject;
 
-    // Reset state
     intro.classList.remove('fade-out');
     introFill.style.transition  = 'none';
     introFill.style.width       = '0%';
@@ -588,12 +574,10 @@ function initTourModal() {
     progressFill.style.width      = '0%';
     playerWrap.innerHTML = '';
 
-    // Open modal
     backdrop.classList.add('open');
     backdrop.setAttribute('aria-hidden', 'false');
     document.body.classList.add('scroll-locked');
 
-    // Build YouTube embed — autoplay muted, start at specified second
     var iframe = document.createElement('iframe');
     iframe.src = 'https://www.youtube-nocookie.com/embed/' + tour.videoId
       + '?autoplay=1&mute=1&controls=0&loop=1&playlist=' + tour.videoId
@@ -624,7 +608,6 @@ function initTourModal() {
       });
     }, INTRO_DURATION);
 
-    // Focus close button for accessibility
     setTimeout(function () { if (closeBtn) closeBtn.focus(); }, 100);
   }
 
@@ -639,7 +622,6 @@ function initTourModal() {
     backdrop.setAttribute('aria-hidden', 'true');
     document.body.classList.remove('scroll-locked');
 
-    // Destroy iframe to stop video
     setTimeout(function () {
       playerWrap.innerHTML = '';
       intro.classList.remove('fade-out');
@@ -652,7 +634,6 @@ function initTourModal() {
     trackCta('tour-close');
   }
 
-  // Wire triggers
   triggers.forEach(function (btn) {
     btn.addEventListener('click', function () {
       openTour(btn.dataset.tour);
