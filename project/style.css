@@ -1435,18 +1435,14 @@ h4 {
   background: var(--gold-dim);
 }
 
-/* ─── ATTRACTION MODAL ────────────────────────────────────── */
+/* ─── ATTRACTION PANEL (slide-in from right) ──────────────── */
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(250, 248, 244, 0.82);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: rgba(26, 22, 18, 0.22);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 950;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
   opacity: 0;
   pointer-events: none;
   transition: opacity var(--dur-med) var(--ease-out);
@@ -1457,52 +1453,65 @@ h4 {
   pointer-events: all;
 }
 
+/* The panel itself — mirrors .skyhall-panel exactly */
 .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(680px, 100vw);
   background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-xl);
-  max-width: 660px;
-  width: 100%;
-  max-height: 90vh;
+  border-left: 1px solid var(--border);
+  box-shadow: -8px 0 48px rgba(26, 22, 18, 0.14);
+  z-index: 951;
+  transform: translateX(100%);
+  transition: transform var(--dur-slow) var(--ease-out);
   overflow-y: auto;
-  position: relative;
-  transform: translateY(20px) scale(0.97);
-  transition: transform var(--dur-med) var(--ease-out);
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-backdrop.open .modal {
-  transform: translateY(0) scale(1);
+  transform: translateX(0);
 }
 
 .modal-close {
-  position: absolute;
-  top: 14px;
-  right: 14px;
+  position: sticky;
+  top: 16px;
+  left: 16px;
+  align-self: flex-start;
   z-index: 2;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: var(--ivory-warm);
-  border: 1px solid var(--border);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--ink-soft);
-  font-size: 0.85rem;
-  display: flex;
+  background: rgba(250, 248, 244, 0.9);
+  border: 1px solid var(--border);
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  margin: 16px;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  transition: background var(--dur-fast), color var(--dur-fast);
+  gap: 7px;
+  transition: background var(--dur-fast), border-color var(--dur-fast);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  width: auto;
+  height: auto;
 }
 
 .modal-close:hover {
   background: var(--ivory-deep);
+  border-color: var(--gold-border);
   color: var(--ink);
 }
 
 .modal-img-wrap {
   width: 100%;
-  height: 260px;
+  height: 300px;
   overflow: hidden;
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  flex-shrink: 0;
 }
 
 .modal-img {
@@ -1510,13 +1519,22 @@ h4 {
   height: 100%;
   background-size: cover;
   background-position: center;
+  transition: transform var(--dur-slow) var(--ease-out);
 }
 
-.modal-body { padding: clamp(24px, 3vw, 36px); }
-.modal-icon { font-size: 1.8rem; display: block; margin-bottom: 10px; }
-.modal-body h3 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); margin-bottom: 14px; }
-.modal-body p  { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.75; margin-bottom: 24px; }
+.modal-backdrop.open .modal-img {
+  transform: scale(1.03);
+}
+
+.modal-body { padding: clamp(24px, 4vw, 44px); }
+.modal-icon { font-size: 2rem; display: block; margin-bottom: 12px; }
+.modal-body h3 { font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 14px; }
+.modal-body p  { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.78; margin-bottom: 28px; }
 .modal-cta     { margin-top: 6px; }
+
+@media (max-width: 768px) {
+  .modal { width: 100vw; border-left: none; }
+}
 
 /* ─── EVENTS SECTION ──────────────────────────────────────── */
 .section-events {
