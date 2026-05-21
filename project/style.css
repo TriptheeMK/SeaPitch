@@ -1072,13 +1072,12 @@ h4 {
 
 .luxury-img-main {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 78%;
-  height: 88%;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 24px 72px rgba(26, 22, 18, 0.28), 0 8px 24px rgba(26, 22, 18, 0.16);
 }
 
 .luxury-img-main img {
@@ -1436,6 +1435,38 @@ h4 {
 
 .attraction-card:hover .card-expand-hint {
   background: var(--gold-dim);
+}
+
+/* ─── SEASIDE TOWER — full-card background image ─────────── */
+.attraction-card--tower {
+  background-image: var(--tower-img);
+  background-size: cover;
+  background-position: center top;
+  border-color: rgba(184, 147, 90, 0.3);
+}
+
+.attraction-card--tower .attraction-img {
+  display: none;
+}
+
+.attraction-card--tower .attraction-body {
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 248, 244, 0.72) 0%,
+    rgba(250, 248, 244, 0.92) 60%,
+    var(--white) 100%
+  );
+  margin-top: auto;
+  padding-top: clamp(80px, 18vw, 160px);
+}
+
+.attraction-card--tower .card-expand-hint {
+  background: rgba(250, 248, 244, 0.95);
+}
+
+.attraction-card--tower:hover {
+  border-color: var(--gold-border);
+  box-shadow: 0 12px 48px rgba(184, 147, 90, 0.22), var(--shadow-lg);
 }
 
 /* ─── ATTRACTION PANEL (slide-in from right) ──────────────── */
