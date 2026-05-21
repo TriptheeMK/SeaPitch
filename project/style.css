@@ -2195,7 +2195,7 @@ h4 {
 
 /* ─── TOUR BUTTON ────────────────────────────────────────── */
 .tour-btn-icon {
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2204,6 +2204,8 @@ h4 {
   border-radius: 50%;
   background: rgba(255,255,255,0.22);
   flex-shrink: 0;
+  padding-left: 2px; /* optical centre for ▶ glyph */
+  line-height: 1;
 }
 
 /* ─── TOUR MODAL SYSTEM ───────────────────────────────────── */
