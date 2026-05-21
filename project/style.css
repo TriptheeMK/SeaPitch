@@ -1713,8 +1713,8 @@ h4 {
 }
 
 .sponsor-tier-card {
-  background: var(--ivory);
-  border: 1px solid var(--border);
+  background: linear-gradient(160deg, var(--white), rgba(232, 213, 176, 0.18));
+  border: 1px solid var(--gold-border);
   border-radius: var(--radius-lg);
   padding: clamp(20px, 2.5vw, 32px) clamp(16px, 2vw, 24px);
   text-align: center;
@@ -1724,7 +1724,7 @@ h4 {
 }
 
 .sponsor-tier-card:hover {
-  border-color: var(--gold-border);
+  border-color: var(--gold);
   box-shadow: var(--shadow-md);
   transform: translateY(-4px);
 }
@@ -1737,16 +1737,16 @@ h4 {
 .sponsor-tier-card--featured::after {
   content: 'Most Popular';
   position: absolute;
-  top: 12px;
-  right: -20px;
+  top: 14px;
+  right: 14px;
   background: var(--gold);
   color: var(--white);
-  font-size: 0.56rem;
+  font-size: 0.55rem;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 4px 24px;
-  transform: rotate(35deg);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
 }
 
 .sponsor-tier-name {
@@ -2149,6 +2149,7 @@ h4 {
   .dining-copy { padding: clamp(36px, 5vw, 64px); }
 
   .attractions-grid { grid-template-columns: repeat(2, 1fr); }
+  .attractions-grid .attraction-card:last-child { grid-column: 1 / -1; max-width: calc(50% - 9px); margin: 0 auto; }
   .venue-specs { grid-template-columns: repeat(2, 1fr); }
 
   .sponsorship-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2163,6 +2164,7 @@ h4 {
   .retail-grid { grid-template-columns: 1fr; }
   .retail-grid .retail-card:last-child { grid-column: auto; max-width: 100%; }
   .attractions-grid { grid-template-columns: 1fr; }
+  .attractions-grid .attraction-card:last-child { grid-column: auto; max-width: 100%; margin: 0; }
   .tier-grid { grid-template-columns: 1fr; }
   .skyhall-specs-grid { grid-template-columns: 1fr 1fr; }
   .sponsorship-grid { grid-template-columns: 1fr 1fr; }
