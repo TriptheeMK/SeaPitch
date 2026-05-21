@@ -1367,6 +1367,8 @@ h4 {
 
 .attraction-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -1408,6 +1410,7 @@ h4 {
 
 .attraction-body {
   padding: clamp(18px, 2.5vw, 26px);
+  flex: 1;
 }
 
 .attraction-icon {
@@ -1795,6 +1798,13 @@ h4 {
   width: 4px;
   height: 1px;
   background: var(--gold);
+}
+
+.sponsor-tier-card .btn-ghost:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--white);
+  box-shadow: 0 6px 24px rgba(184, 147, 90, 0.35);
 }
 
 .sponsor-locations {
