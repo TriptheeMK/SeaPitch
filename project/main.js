@@ -40,7 +40,7 @@ var ATTRACTIONS = [
   {
     name: 'Seaside Tower',
     icon: '🗼',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/SM_Seaside_City_Cebu.jpg/1280px-SM_Seaside_City_Cebu.jpg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/SM_Seaside_City_Cebu.jpg',
     detail: "147 m tall, standing at the centre of the circular mall. The most recognisable landmark on the South Road Properties skyline, visible from across the water. Nautilus-inspired design by Arquitectonica. A premium future branding and observation asset as SRP continues to develop."
   }
 ];
@@ -671,6 +671,47 @@ function initTourModal() {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   CONTACT DETAILS POPUP
+═══════════════════════════════════════════════════════════ */
+function initContactPopup() {
+  var backdrop = document.getElementById('cp-backdrop');
+  var closeBtn = document.getElementById('cp-close');
+  if (!backdrop || !closeBtn) return;
+
+  function open() {
+    backdrop.classList.add('open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('scroll-locked');
+    setTimeout(function () { if (closeBtn) closeBtn.focus(); }, 80);
+  }
+
+  function close() {
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('scroll-locked');
+  }
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-contact-btn]');
+    if (btn) {
+      e.preventDefault();
+      trackCta(btn.dataset.cta || 'contact-popup');
+      open();
+    }
+  });
+
+  closeBtn.addEventListener('click', close);
+
+  backdrop.addEventListener('click', function (e) {
+    if (e.target === backdrop) close();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && backdrop.classList.contains('open')) close();
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
    INITIALISE ALL MODULES
 ═══════════════════════════════════════════════════════════ */
 function init() {
@@ -688,6 +729,7 @@ function init() {
   initCtaTracking();
   initMarquee();
   initTourModal();
+  initContactPopup();
 }
 
 if (document.readyState === 'loading') {
