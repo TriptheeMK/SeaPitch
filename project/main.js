@@ -11,7 +11,7 @@ var ATTRACTIONS = [
     name: 'Sky Park',
     icon: '🌿',
     img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
-    detail: "23,443 m² elevated rooftop park — free entry — designed in collaboration with Kenneth Cobonpue. Features ponds, trees, jogging track, soccer field, dog park, and children’s playground. Views overlook San Pedro Calungsod Chapel and Cebu Ocean Park. Hosts the annual Sinulog Sky Park Party (5,000+ guests). The adjacent Sky Garden event terrace seats 500 per side."
+    detail: "~20,000 m² elevated rooftop park — free entry — designed in collaboration with Kenneth Cobonpue. Features ponds, trees, jogging track, soccer field, dog park, and children’s playground. Views overlook San Pedro Calungsod Chapel and Cebu Ocean Park. Hosts the annual Sinulog Sky Park Party (5,000+ guests). The adjacent Sky Garden event terrace seats 500 per side."
   },
   {
     name: 'Super Screen Cinema',
@@ -41,7 +41,7 @@ var ATTRACTIONS = [
     name: 'Seaside Tower',
     icon: '🗼',
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/SM_Seaside_City_Cebu.jpg/1280px-SM_Seaside_City_Cebu.jpg',
-    detail: "169 m tall, standing at the centre of the circular mall. The most recognisable landmark on the South Road Properties skyline, visible from across the water. Nautilus-inspired design by Arquitectonica. A premium future branding and observation asset as SRP continues to develop."
+    detail: "147 m tall, standing at the centre of the circular mall. The most recognisable landmark on the South Road Properties skyline, visible from across the water. Nautilus-inspired design by Arquitectonica. A premium future branding and observation asset as SRP continues to develop."
   }
 ];
 
@@ -524,25 +524,25 @@ function initMarquee() {
 ═══════════════════════════════════════════════════════════ */
 var TOURS = {
   luxury: {
-    videoId:  'Uz9WfuimXE0',
-    eyebrow:  'Luxury Flagship',
-    title:    'Premium Ground-Floor Experience',
+    videoId:  'He19Uh_UPlY',
+    eyebrow:  'Luxury Flagship · SM Seaside City Cebu',
+    title:    'Premium Ground-Floor Walkthrough',
     inquirySubject: 'Luxury+Flagship+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
-    start:    5
+    start:    4
   },
   midtier: {
-    videoId:  'E7a9vPtKDJk',
-    eyebrow:  'Mid-Tier Retail',
+    videoId:  'XHU0RVTqRKo',
+    eyebrow:  'Mid-Tier Retail · SM Seaside City Cebu',
     title:    'City Wing & Seaview Wing Walkthrough',
     inquirySubject: 'Mid-Tier+Retail+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
-    start:    8
+    start:    5
   },
   atrium: {
-    videoId:  'DjkMR7ybTPI',
-    eyebrow:  'Pop-Up & Kiosk',
-    title:    'Atrium & Concourse Activation Space',
+    videoId:  'vWJAPA2qT1w',
+    eyebrow:  'Pop-Up & Kiosk · SM Seaside City Cebu',
+    title:    'Mountain Wing Atrium & Concourse',
     inquirySubject: 'Atrium+Kiosk+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
-    start:    6
+    start:    3
   }
 };
 
