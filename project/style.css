@@ -1439,29 +1439,7 @@ h4 {
 
 /* ─── SEASIDE TOWER — full-card background image ─────────── */
 .attraction-card--tower {
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9b/SM_Seaside_City_Cebu.jpg');
-  background-size: cover;
-  background-position: center top;
   border-color: rgba(184, 147, 90, 0.3);
-}
-
-.attraction-card--tower .attraction-img {
-  display: none;
-}
-
-.attraction-card--tower .attraction-body {
-  background: linear-gradient(
-    to bottom,
-    rgba(250, 248, 244, 0.72) 0%,
-    rgba(250, 248, 244, 0.92) 60%,
-    var(--white) 100%
-  );
-  margin-top: auto;
-  padding-top: clamp(80px, 18vw, 160px);
-}
-
-.attraction-card--tower .card-expand-hint {
-  background: rgba(250, 248, 244, 0.95);
 }
 
 .attraction-card--tower:hover {

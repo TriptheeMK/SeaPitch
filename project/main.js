@@ -40,7 +40,7 @@ var ATTRACTIONS = [
   {
     name: 'Seaside Tower',
     icon: '🗼',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/9/9b/SM_Seaside_City_Cebu.jpg',
+    img: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Tower_Garden_at_SM_Seaside_City_%282024-06-13%29.jpg',
     detail: "147 m tall, standing at the centre of the circular mall. The most recognisable landmark on the South Road Properties skyline, visible from across the water. Nautilus-inspired design by Arquitectonica. A premium future branding and observation asset as SRP continues to develop."
   }
 ];
