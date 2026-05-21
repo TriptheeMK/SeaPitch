@@ -366,7 +366,9 @@
             <div class="rate-disclaimer">est. &mdash; contact for current rates</div>
           </div>
           <p class="lease-pitch">Ideal for auto showrooms, luxury fashion, and flagship tech brands seeking maximum visibility in the Visayas&rsquo; most trafficked address.</p>
-          <a href="mailto:customercare@smsupermalls.com?subject=Luxury%20Flagship%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="leasing-luxury-tour">Request a Tour &rarr;</a>
+          <button class="btn-primary tour-trigger" data-tour="luxury" data-cta="leasing-luxury-tour">
+            <span class="tour-btn-icon">&#9654;</span> Start Tour
+          </button>
         </div>
 
         <div class="lease-card lease-card--featured reveal" style="--delay:0.12s">
@@ -378,7 +380,9 @@
             <div class="rate-disclaimer">est. &mdash; contact for current rates</div>
           </div>
           <p class="lease-pitch">Ideal for fashion, electronics, and specialty retail brands. High-traffic corridors with sustained daily footfall and strong anchor co-tenancy.</p>
-          <a href="mailto:customercare@smsupermalls.com?subject=Mid-Tier%20Retail%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="leasing-midtier-tour">Request a Tour &rarr;</a>
+          <button class="btn-primary tour-trigger" data-tour="midtier" data-cta="leasing-midtier-tour">
+            <span class="tour-btn-icon">&#9654;</span> Start Tour
+          </button>
         </div>
 
         <div class="lease-card reveal" style="--delay:0.2s">
@@ -390,7 +394,9 @@
             <div class="rate-disclaimer">est. &mdash; contact for current rates</div>
           </div>
           <p class="lease-pitch">Ideal for F&amp;B, lifestyle, and limited-edition drop concepts. High-visibility inline and freestanding positions in peak-traffic atrium zones.</p>
-          <a href="mailto:customercare@smsupermalls.com?subject=Pop-Up%20Kiosk%20Leasing%20Inquiry%20%E2%80%94%20SM%20Seaside%20City%20Cebu" class="btn-primary" data-cta="leasing-popup-tour">Request a Tour &rarr;</a>
+          <button class="btn-primary tour-trigger" data-tour="atrium" data-cta="leasing-popup-tour">
+            <span class="tour-btn-icon">&#9654;</span> Start Tour
+          </button>
         </div>
 
       </div>
@@ -851,6 +857,42 @@
   </footer>
 
   <script src="main.js"></script>
+
+  <!-- ═══════════════════════════════════════════════
+       TOUR MODAL
+  ═══════════════════════════════════════════════ -->
+  <div id="tour-modal" class="tour-modal-backdrop" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tour-modal-label">
+
+    <!-- Cinematic intro overlay -->
+    <div class="tour-intro" id="tour-intro" aria-hidden="true">
+      <div class="tour-intro-inner">
+        <span class="tour-intro-eyebrow">SM Seaside City</span>
+        <p class="tour-intro-headline" id="tour-intro-label">Your guided experience begins&hellip;</p>
+        <div class="tour-intro-bar"><div class="tour-intro-fill" id="tour-intro-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- Video container -->
+    <div class="tour-video-wrap" id="tour-video-wrap">
+      <div class="tour-meta" id="tour-meta">
+        <span class="tour-meta-eyebrow" id="tour-meta-eyebrow"></span>
+        <span class="tour-meta-title"   id="tour-meta-title"></span>
+      </div>
+      <div id="tour-player-container" class="tour-player-container"></div>
+      <div class="tour-progress-bar"><div class="tour-progress-fill" id="tour-progress-fill"></div></div>
+    </div>
+
+    <!-- Controls -->
+    <div class="tour-controls">
+      <button class="tour-close-btn" id="tour-close-btn" aria-label="Close tour">
+        <span class="tour-close-x">&#10005;</span> Close Tour
+      </button>
+      <a class="tour-inquiry-btn btn-primary" id="tour-inquiry-btn" href="#" data-cta="tour-inquiry">
+        Leasing Inquiry &rarr;
+      </a>
+    </div>
+
+  </div>
 
   <!-- Floating inquiry toggle script (inline, minimal) -->
   <script>

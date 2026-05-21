@@ -520,6 +520,157 @@ function initMarquee() {
 }
 
 /* ═══════════════════════════════════════════════════════════
+   14. TOUR MODAL — YouTube embed per leasing category
+═══════════════════════════════════════════════════════════ */
+var TOURS = {
+  luxury: {
+    videoId:  'Uz9WfuimXE0',
+    eyebrow:  'Luxury Flagship',
+    title:    'Premium Ground-Floor Experience',
+    inquirySubject: 'Luxury+Flagship+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
+    start:    5
+  },
+  midtier: {
+    videoId:  'E7a9vPtKDJk',
+    eyebrow:  'Mid-Tier Retail',
+    title:    'City Wing & Seaview Wing Walkthrough',
+    inquirySubject: 'Mid-Tier+Retail+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
+    start:    8
+  },
+  atrium: {
+    videoId:  'DjkMR7ybTPI',
+    eyebrow:  'Pop-Up & Kiosk',
+    title:    'Atrium & Concourse Activation Space',
+    inquirySubject: 'Atrium+Kiosk+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
+    start:    6
+  }
+};
+
+var tourOpen = false;
+var tourProgressTimer = null;
+var tourIntroTimer    = null;
+var TOUR_DURATION     = 20000; // ms of progress bar fill
+var INTRO_DURATION    = 2600;  // ms intro stays before video appears
+
+function initTourModal() {
+  var backdrop      = document.getElementById('tour-modal');
+  var intro         = document.getElementById('tour-intro');
+  var introFill     = document.getElementById('tour-intro-fill');
+  var introLabel    = document.getElementById('tour-intro-label');
+  var playerWrap    = document.getElementById('tour-player-container');
+  var metaEyebrow   = document.getElementById('tour-meta-eyebrow');
+  var metaTitle     = document.getElementById('tour-meta-title');
+  var progressFill  = document.getElementById('tour-progress-fill');
+  var closeBtn      = document.getElementById('tour-close-btn');
+  var inquiryBtn    = document.getElementById('tour-inquiry-btn');
+  var triggers      = document.querySelectorAll('.tour-trigger');
+
+  if (!backdrop || !triggers.length) return;
+
+  function openTour(tourKey) {
+    var tour = TOURS[tourKey];
+    if (!tour) return;
+
+    tourOpen = true;
+    trackCta('tour-open-' + tourKey);
+
+    // Populate meta
+    metaEyebrow.textContent = tour.eyebrow;
+    metaTitle.textContent   = tour.title;
+    introLabel.textContent  = 'Your guided experience begins…';
+    inquiryBtn.href = 'mailto:customercare@smsupermalls.com?subject=' + tour.inquirySubject;
+
+    // Reset state
+    intro.classList.remove('fade-out');
+    introFill.style.transition  = 'none';
+    introFill.style.width       = '0%';
+    progressFill.style.transition = 'none';
+    progressFill.style.width      = '0%';
+    playerWrap.innerHTML = '';
+
+    // Open modal
+    backdrop.classList.add('open');
+    backdrop.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('scroll-locked');
+
+    // Build YouTube embed — autoplay muted, start at specified second
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.youtube-nocookie.com/embed/' + tour.videoId
+      + '?autoplay=1&mute=1&controls=0&loop=1&playlist=' + tour.videoId
+      + '&start=' + (tour.start || 0)
+      + '&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1';
+    iframe.title        = tour.title;
+    iframe.allow        = 'autoplay; fullscreen';
+    iframe.setAttribute('allowfullscreen', '');
+    playerWrap.appendChild(iframe);
+
+    // Intro fill animation (matches INTRO_DURATION)
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        introFill.style.transition = 'width ' + INTRO_DURATION + 'ms linear';
+        introFill.style.width      = '100%';
+      });
+    });
+
+    // After intro duration, fade intro out and start progress bar
+    tourIntroTimer = setTimeout(function () {
+      intro.classList.add('fade-out');
+
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () {
+          progressFill.style.transition = 'width ' + TOUR_DURATION + 'ms linear';
+          progressFill.style.width      = '100%';
+        });
+      });
+    }, INTRO_DURATION);
+
+    // Focus close button for accessibility
+    setTimeout(function () { if (closeBtn) closeBtn.focus(); }, 100);
+  }
+
+  function closeTour() {
+    if (!tourOpen) return;
+    tourOpen = false;
+
+    clearTimeout(tourProgressTimer);
+    clearTimeout(tourIntroTimer);
+
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('scroll-locked');
+
+    // Destroy iframe to stop video
+    setTimeout(function () {
+      playerWrap.innerHTML = '';
+      intro.classList.remove('fade-out');
+      progressFill.style.transition = 'none';
+      progressFill.style.width      = '0%';
+      introFill.style.transition    = 'none';
+      introFill.style.width         = '0%';
+    }, 500);
+
+    trackCta('tour-close');
+  }
+
+  // Wire triggers
+  triggers.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openTour(btn.dataset.tour);
+    });
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeTour);
+
+  backdrop.addEventListener('click', function (e) {
+    if (e.target === backdrop) closeTour();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && tourOpen) closeTour();
+  });
+}
+
+/* ═══════════════════════════════════════════════════════════
    INITIALISE ALL MODULES
 ═══════════════════════════════════════════════════════════ */
 function init() {
@@ -536,6 +687,7 @@ function init() {
   initContactModal();
   initCtaTracking();
   initMarquee();
+  initTourModal();
 }
 
 if (document.readyState === 'loading') {
