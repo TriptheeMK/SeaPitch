@@ -1439,7 +1439,7 @@ h4 {
 
 /* ─── SEASIDE TOWER — full-card background image ─────────── */
 .attraction-card--tower {
-  background-image: var(--tower-img);
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/9/9b/SM_Seaside_City_Cebu.jpg');
   background-size: cover;
   background-position: center top;
   border-color: rgba(184, 147, 90, 0.3);
