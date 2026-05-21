@@ -2021,8 +2021,8 @@ h4 {
 }
 
 .contact-card--featured {
-  border-color: var(--gold-border);
-  background: linear-gradient(160deg, var(--white), rgba(232, 213, 176, 0.16));
+  border-color: var(--border);
+  background: var(--white);
 }
 
 .contact-icon-wrap { font-size: 1.9rem; line-height: 1; }
