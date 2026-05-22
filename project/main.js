@@ -10,37 +10,37 @@ var ATTRACTIONS = [
   {
     name: 'Sky Park',
     icon: '🌿',
-    img: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80',
+    img: 'assets/img/attraction-skypark-rooftop.jpg',
     detail: "~20,000 m² elevated rooftop park — free entry — designed in collaboration with Kenneth Cobonpue. Features ponds, trees, jogging track, soccer field, dog park, and children's playground. Views overlook San Pedro Calungsod Chapel and Cebu Ocean Park. Hosts the annual Sinulog Sky Park Party (5,000+ guests). The adjacent Sky Garden event terrace seats 500 per side."
   },
   {
     name: 'Super Screen Cinema',
     icon: '🎬',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/c/c1/SM_Cinema_at_SM_Seaside_City_%282025-03-01%29.jpg',
+    img: 'assets/img/attraction-cinema.jpg',
     detail: "351 seats with Christie 6P laser projection and Dolby Atmos sound — a screen nearly 30% larger than standard. Plus 2 Director's Club recliner theatres and 4 regular digital screens — 7 auditoriums total. The Visayas' most advanced cinema complex."
   },
   {
     name: 'Olympic Ice Rink',
     icon: '⛸️',
-    img: 'https://images.unsplash.com/photo-1515703407324-5f753afd8be8?w=1200&q=80',
+    img: 'assets/img/attraction-ice-rink.jpg',
     detail: "The only Olympic-sized ice rink in the Visayas — 1,800 m² of full-format ice. Freshly renovated and reopened March 2026. Public skating, learn-to-skate, and hockey clinics year-round. Up to 300 skaters at once; floor-to-ceiling food court windows look directly over the rink."
   },
   {
     name: 'SM Bowling & Amusement',
     icon: '🎳',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/a/ac/SM_Bowling_and_Leisure_Center_at_SM_Seaside_City_%282024-06-13%29.jpg',
+    img: 'assets/img/attraction-bowling.jpg',
     detail: "18 regulation bowling lanes plus a full amusement floor on 3rd Level, City Wing. A proven draw for families, corporate groups, and barkada — strong naming rights and in-venue sponsorship potential."
   },
   {
     name: 'Skywalk Adventure',
     icon: '🪟',
-    img: 'https://images.unsplash.com/photo-1519451241324-20b4ea2c4220?w=1200&q=80',
+    img: 'assets/img/attraction-skywalk-glassfoor.jpg',
     detail: "Paid attraction within Sky Park: transparent glass-floor panels with an unobstructed view straight down. One of the most photographed experiences in Cebu — a genuine thrill and social-media moment ideal for branded activations."
   },
   {
     name: 'Seaside Tower',
     icon: '🗼',
-    img: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Tower_Garden_at_SM_Seaside_City_%282024-06-13%29.jpg',
+    img: 'assets/img/attraction-seaside-tower.jpg',
     detail: "147 m tall, standing at the centre of the circular mall. The most recognisable landmark on the South Road Properties skyline, visible from across the water. Nautilus-inspired design by Arquitectonica. A premium future branding and observation asset as SRP continues to develop."
   }
 ];
@@ -75,20 +75,41 @@ function initHeroSlideshow() {
   var total = slides.length;
   var interval = null;
 
+  function getBgUrl(slide) {
+    var style = slide.style.backgroundImage;
+    var m = style.match(/url\(['"]?([^'"]+)['"]?\)/);
+    return m ? m[1] : null;
+  }
+
+  function preload(index) {
+    var url = getBgUrl(slides[(index + total) % total]);
+    if (url) { var img = new Image(); img.src = url; }
+  }
+
   function goTo(index) {
     slides[current].classList.remove('active');
     current = (index + total) % total;
     slides[current].classList.add('active');
-    if (counter) {
-      counter.textContent = String(current + 1).padStart(2, '0');
-    }
+    if (counter) counter.textContent = String(current + 1).padStart(2, '0');
+    preload(current + 1);
   }
 
-  function next() {
-    goTo(current + 1);
+  function start() {
+    if (interval) return;
+    interval = setInterval(function () { goTo(current + 1); }, 5000);
   }
 
-  interval = setInterval(next, 5000);
+  function stop() {
+    clearInterval(interval);
+    interval = null;
+  }
+
+  document.addEventListener('visibilitychange', function () {
+    if (document.hidden) { stop(); } else { start(); }
+  });
+
+  preload(1);
+  start();
 
   setTimeout(function () {
     var hero = document.getElementById('hero');
