@@ -540,18 +540,18 @@ var TOURS = {
     start:    4
   },
   midtier: {
-    videoId:  'XHU0RVTqRKo',
+    videoId:  'KC8f4w1hpuo',
     eyebrow:  'Mid-Tier Retail · SM Seaside City Cebu',
     title:    'City Wing & Seaview Wing Walkthrough',
     inquirySubject: 'Mid-Tier+Retail+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
-    start:    5
+    start:    10
   },
   atrium: {
-    videoId:  'vWJAPA2qT1w',
+    videoId:  'Dzt9T93WmLI',
     eyebrow:  'Pop-Up & Kiosk · SM Seaside City Cebu',
     title:    'Mountain Wing Atrium & Concourse',
     inquirySubject: 'Atrium+Kiosk+Leasing+%E2%80%94+SM+Seaside+City+Cebu',
-    start:    3
+    start:    8
   }
 };
 

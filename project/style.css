@@ -162,8 +162,14 @@ button {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
   flex-shrink: 0;
+  text-decoration: none;
+}
+
+.nav-logo-img {
+  height: 36px;
+  width: auto;
+  display: block;
 }
 
 .logo-sm {
@@ -842,13 +848,14 @@ h4 {
 .section-why {
   background: var(--white);
   padding-top: calc(var(--section-v) + var(--nav-h));
+  padding-bottom: clamp(40px, 5vw, 64px);
 }
 
 .why-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(48px, 7vw, 96px);
-  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
+  align-items: stretch;
 }
 
 .why-image {
@@ -860,8 +867,10 @@ h4 {
 
 .why-image img {
   width: 100%;
-  height: clamp(360px, 46vw, 580px);
+  height: 100%;
+  min-height: 360px;
   object-fit: cover;
+  display: block;
 }
 
 .image-caption {
@@ -877,12 +886,12 @@ h4 {
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin: clamp(22px, 3vw, 36px) 0;
+  gap: 8px;
+  margin: clamp(14px, 2vw, 24px) 0;
 }
 
 .stat-item {
-  padding: clamp(14px, 2vw, 20px) clamp(10px, 1.5vw, 16px);
+  padding: clamp(8px, 1.2vw, 12px) clamp(6px, 1vw, 10px);
   background: var(--ivory);
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -898,21 +907,21 @@ h4 {
 .stat-num {
   display: block;
   font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-size: clamp(1rem, 1.6vw, 1.45rem);
   font-weight: 300;
   color: var(--gold);
   line-height: 1;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
   letter-spacing: -0.01em;
 }
 
 .stat-year {
-  font-size: clamp(0.92rem, 1.5vw, 1.3rem);
+  font-size: clamp(0.72rem, 1.1vw, 1rem);
 }
 
 .stat-label {
-  font-size: 0.63rem;
-  letter-spacing: 0.1em;
+  font-size: 0.56rem;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink-muted);
 }
@@ -2118,8 +2127,8 @@ h4 {
   flex-wrap: wrap;
 }
 
-.footer-brand { font-size: 0.75rem; color: var(--ink-muted); letter-spacing: 0.04em; }
-.footer-brand .logo-sm { font-size: 0.88rem; }
+.footer-brand { display: flex; align-items: center; }
+.footer-logo-img { height: 28px; width: auto; display: block; opacity: 0.75; }
 .footer-tagline { font-size: 0.68rem; color: var(--ink-ghost); letter-spacing: 0.06em; }
 
 /* ─── SECTION CTA ─────────────────────────────────────────── */
@@ -2523,6 +2532,7 @@ body.scroll-locked { overflow: hidden; }
   color: var(--white);
   margin: 0 0 6px;
   letter-spacing: 0.01em;
+padding-left: 90px;
 }
 
 .cp-subtitle {
