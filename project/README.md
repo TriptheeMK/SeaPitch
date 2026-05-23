@@ -1,83 +1,117 @@
 # SM Seaside City Cebu — Interactive Sales Deck
 
-Live URL: _(add after deploy)_
-GitHub: _(add repo URL)_
+An interactive, single-page sales deck for SM Seaside City Cebu — the Visayas' largest mall at 470,486 m² with 700+ stores on South Road Properties. Built as a cinematic, scroll-driven pitch tool for leasing, sponsorship, and events prospects.
 
-## What it is
+---
 
-A browser-based interactive sales deck for SM Seaside City Cebu — the largest mall in the Visayas. Built as a pitch tool for prospective tenants, sponsors, and event partners.
+## Tech Stack
 
-## Tech stack
+| Layer | Choice |
+|---|---|
+| Markup | Vanilla HTML5 (semantic sections, ARIA attributes) |
+| Styling | Vanilla CSS3 — custom properties, Flexbox, Grid, `@keyframes` |
+| Scripting | Vanilla JavaScript (ES5-compatible, no build step) |
+| Fonts | Google Fonts — Cormorant Garamond (headings) + Inter (body) |
+| Icons / Marks | Custom SVG (logo, favicon) |
+| Assets | Locally hosted JPEG images — no CDN dependency |
 
-| Layer | Choice | Why |
-|---|---|---|
-| HTML/CSS/JS | Vanilla — no framework | Fast to load, no build step, 90+ Lighthouse |
-| Typography | Cormorant Garamond + Inter (Google Fonts) | Luxury serif + clean sans |
-| Video | YouTube IFrame API (background embed) | No hosting cost; autoplay/mute supported |
-| Scroll reveal | IntersectionObserver (native) | No library needed for this pattern |
-| Counter animation | requestAnimationFrame | Smooth, zero deps |
-| Deploy | Vercel / Netlify (static) | One-command deploy |
+No frameworks, no bundler, no npm. The entire project is three files: `index.html`, `style.css`, `main.js`.
 
-## Project structure
+---
+
+## Setup Instructions
+
+**Requirements:** Any modern web browser. No server, build tool, or internet connection required (fonts load from Google Fonts if online; everything else is local).
+
+```bash
+# Clone the repo
+git clone https://github.com/TriptheeMK/SeaPitch.git
+cd SeaPitch/project
+
+# Open directly in browser
+open index.html          # macOS
+start index.html         # Windows
+xdg-open index.html      # Linux
+```
+
+Or drag `project/index.html` into a browser window.
+
+> **Note:** If you move `index.html` out of the `project/` folder, update the image paths in `index.html` and `main.js` to match.
+
+---
+
+## Project Structure
 
 ```
 project/
-  index.html       ← single-page deck (7 sections)
-  style.css        ← design system + all component styles
-  main.js          ← nav, scroll-spy, counters, modal, YT player
-  data/
-    stats.json     ← facts, stats, video IDs, contact info
-  videos/          ← (placeholder) local .mp4 files if used
-  images/          ← (placeholder) optimised .webp stills
-  ai-assets/       ← (placeholder) AI-generated renders
-planning/
-  01_subject_assets.md
-  02_story.md
-  03_sections.md
-  04_content_manifest.md
-  05_wireframe.md
+├── index.html              # All markup and section content
+├── style.css               # All styles (layout, animations, responsive)
+├── main.js                 # All interactivity (no dependencies)
+├── assets/
+│   └── img/
+│       ├── hero-1..4.jpg   # Cinematic hero slideshow images
+│       ├── attraction-*.jpg
+│       ├── retail-*.jpg
+│       ├── dining-*.jpg
+│       ├── events-*.jpg
+│       ├── logo.svg
+│       └── favicon.svg
 ```
+
+---
+
+## Design Decisions
+
+**No frameworks.** The deck is a single static file that deploys anywhere — no Node, no bundler, no dependencies that can break. Vanilla JS + CSS means zero toolchain overhead and instant load times.
+
+**Cinematic hero slideshow.** Four full-bleed images with a 5-second auto-advance and a `visibilitychange` pause when the tab is backgrounded. Images are preloaded one slide ahead to eliminate flash-of-blank.
+
+**Cormorant Garamond + Inter pairing.** Cormorant gives the luxury/editorial tone expected by leasing and sponsorship decision-makers. Inter provides high-legibility body copy at any size. Both are loaded with `font-display: swap` via `<link rel="preconnect">` to avoid layout shift.
+
+**Scroll-spy side rail.** A fixed left-rail nav with dot indicators and label reveals on hover. Lets prospects jump directly to the section most relevant to them (Leasing, Sponsorship, Events) without scrolling the full deck.
+
+**Scroll progress bar.** A thin top bar that fills as the user scrolls — signals how much content remains and encourages full engagement with the deck.
+
+**IntersectionObserver reveals.** Sections and stat cards animate in on scroll using `IntersectionObserver` rather than scroll-event listeners — no jank, no layout thrashing, works on mobile.
+
+**Float inquiry widget.** A persistent `+` button in the lower-right corner expands into quick-action links (Leasing, Sponsorship, Book a Venue, Phone). Reduces friction for prospects ready to act at any point in the deck.
+
+**Contact popup (modal).** A single reusable modal renders the full contact card — populated with leasing, sponsorship, and events contacts — triggered from multiple CTAs throughout the deck via a `data-contact-btn` attribute pattern. One implementation, used everywhere.
+
+**CSS custom properties throughout.** Colors, spacing, nav height, and breakpoints are defined as `--var` tokens on `:root`, making global reskins a one-file change.
+
+**Progressive enhancement.** A `js-ready` class is added to `<html>` on script load; CSS reveal animations are gated on this class. The page reads fully without JavaScript — animations are an enhancement, not a requirement.
+
+---
 
 ## Sections
 
-1. **Hero** — full-bleed YouTube background, cinematic 10-second hook
-2. **Why This Property** — animated counters, location context, ₱8.5B facts
-3. **Retail & Luxury** — tenant strip, 3-card grid, leasing CTA
-4. **Dining & Lifestyle** — split layout, 100+ F&B venues story
-5. **Attractions & Entertainment** — 6 expandable cards, click-to-modal detail
-6. **Events & Platform** — Sky Hall specs, SM Arena 2026, booking CTAs
-7. **Contact / Inquiry** — 3-path CTA: Lease · Sponsor · Book
+| # | Section | Purpose |
+|---|---|---|
+| 1 | Overview (Hero) | Cinematic intro slideshow with headline stats |
+| 2 | Why Here | Location, footfall, and catchment area brief |
+| 3 | Retail | Floor plate breakdown and tenant mix |
+| 4 | Luxury | Premium and anchor brand positioning |
+| 5 | Leasing | Available units and leasing contact CTA |
+| 6 | Dining | F&B offer and venue capacity |
+| 7 | Attractions | Sky Park, Ice Rink, Cinema, Bowling, Skywalk, Seaside Tower |
+| 8 | Events | Venue hire — Sky Hall, Director's Club, Sky Garden |
+| 9 | Sponsorship | Brand activation and naming rights opportunities |
+| 10 | Contact | Leasing, sponsorship, and events contacts |
 
-## Navigation model
+---
 
-Non-linear: sticky nav with scroll-spy. Viewer jumps to any section at any time. No forced linear path.
+## AI Tools Used
 
-## AI tools used
+| Tool | Role |
+|---|---|
+| **Claude (Anthropic)** | Primary development assistant — authored and iterated on all HTML, CSS, and JavaScript. Debugged scroll-spy, smooth-scroll offset, hero slideshow, and modal logic. Assisted with copywriting for section content, stat cards, and CTA labels. |
+| **Claude Code (CLI)** | Used in the terminal to apply edits, manage git commits, and execute multi-step refactors across sessions (image optimization pass, dead-CSS removal, contact popup redesign, asset consolidation). |
 
-- **ChatGPT / Claude** — narrative copywriting, data synthesis, JS architecture
-- **Midjourney / DALL·E** — lifestyle imagery for retail, luxury wing, and events sections (see `ai-assets/`)
-- **Unsplash** — placeholder photography for retail, dining, attraction cards
+All photography is verified factual imagery of SM Seaside City Cebu — no AI-generated images were used in the final build.
 
-## Setup
+---
 
-```bash
-# no build step needed — open directly
-open project/index.html
-# or serve locally:
-npx serve project
-```
+## License
 
-## Design decisions
-
-- **Dark palette** (near-black base, gold accent) — signals luxury and confidence without feeling corporate
-- **Cormorant Garamond** for headlines — shares DNA with Hermès, Gucci, Saint Laurent
-- **No scroll-jacking** — smooth scroll but user controls momentum
-- **Video as storytelling** — YouTube embed autoplays muted in hero; Sky Park 4K embed available in attractions
-
-## What I'd improve with more time
-
-- Replace Unsplash placeholders with official SM Seaside photography
-- Add Sky Hall floor-plan PDF viewer inline (Phase 2)
-- Add Sponsorship tier cards with audience data visualisation (Phase 2)
-- Add Leasing path module with category-specific pitches (Phase 2)
-- Swap YouTube embed for self-hosted optimised MP4 for offline demo use
+Private. All content, photography, and data relate to SM Prime Holdings / SM Seaside City Cebu. Not for public redistribution.
